@@ -1,7 +1,29 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+{% load fontawesome %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% fontawesome_stylesheet %}
+
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
 {% block content %}
-<form method="post">
+<form method="post" class="form">
    {% csrf_token %}
-   {{ form }}
-   <input type="submit" value="Submit" />
+   {% bootstrap_form form %}
+   {% buttons %}
+       <button type="submit" class="btn btn-success">
+           {% bootstrap_icon "star" %} Submit
+       </button>
+   {% endbuttons %}
 </form>
+
+<a href="{% url 'tasks-list' %}">
+   <button class="btn btn-danger">
+      Home
+  </button></a>
 {% endblock %}

@@ -1,17 +1,30 @@
+{# Load the tag library #}
+{% load fontawesome %}
+
+{# Load CSS and JavaScript #}
+{% fontawesome_stylesheet %}
+
 {% block content %}
-   <table>
-   {% for task in object_list %}
-       <tr>
-           <td>{{task.id}}</td><p>
-           <td>{{task.user}}</td>
-           <td>{{task.name}}</td>
-           <td>{{task.priority}}</td>
-           <td>{{task.done}}</td>
-           <td>
-               <a href="{% url 'tasks-update' pk=task.id %}">update</a>
-           </td>
-       </tr>
-   {% endfor %}
-   </table>
-   <p><a href="{% url 'tasks-create' %}">Create</a></p>
+
+    <table>
+    {% for task in object_list %}
+    
+        <tr>
+            {% if task.done %}
+            <td>{% fontawesome_icon 'check' color='green' %}</td>
+            {% else %}
+            <td>{% fontawesome_icon 'times' color='orange' %}</td>
+            {% endif %}
+            <td>{{task.name}}</td>
+            <td>{{task.priority}}</td>
+            <td>{{task.user}}</td>
+            <td>{{task.updated_on}}</td>
+            <td>
+                <a href="{% url 'tasks-update' pk=task.id %}">{% fontawesome_icon 'edit' color='darkgrey' %}</a>
+                <a href="{% url 'tasks-delete' pk=task.id %}">{% fontawesome_icon 'trash' color='red' %}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    <p><a href="{% url 'tasks-create' %}">{% fontawesome_icon 'plus' color='green' %}</a></p>
 {% endblock %}

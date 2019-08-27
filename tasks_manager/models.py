@@ -14,6 +14,8 @@ class Priority(models.Model):
 class TasksManager(models.Model):
     name = models.CharField(max_length=200)
     done = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,

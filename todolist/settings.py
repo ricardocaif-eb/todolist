@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tasks_manager.apps.TasksManagerConfig',
+    'bootstrap3',
+    'fontawesome',
 ]
 
 MIDDLEWARE = [
