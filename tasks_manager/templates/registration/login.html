@@ -1,26 +1,19 @@
+{% extends 'base.html' %}
+
 {# Load the tag library #}
+{% load static %}
 {% load bootstrap3 %}
 {% load fontawesome %}
 
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-{% fontawesome_stylesheet %}
-
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
-
 {% block content %}
-<h3>LOGIN</h3>
-<form method="post" class="form">
-   {% csrf_token %}
-   {% bootstrap_form form %}
-   {% buttons %}
-       <button type="submit" class="btn btn-success">
-           {% bootstrap_icon "star" %} Submit
-       </button>
-   {% endbuttons %}
-</form>
-
+    <h3>LOGIN</h3>
+    <form method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-success">
+            {% bootstrap_icon "star" %} Submit
+        </button>
+    {% endbuttons %}
+    </form>
 {% endblock %}

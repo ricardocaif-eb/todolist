@@ -1,0 +1,29 @@
+<!-- templates/tasks_manager/base.html -->
+
+{# Load the tag library #}
+{% load static %}
+{% load bootstrap3 %}
+{% load fontawesome %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}TODO{% endblock %}</title>
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% fontawesome_stylesheet %}
+    
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+  </head>
+  <body>
+
+    <main>
+    <h2>lalala</h2>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>
