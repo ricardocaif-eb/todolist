@@ -6,7 +6,7 @@
 {% load fontawesome %}
 
 {% block content %}
-
+    <h1>Hi {{user.username}}, these are your tasks!</h1>
     <table>
     {% for task in object_list %}
     
@@ -26,6 +26,15 @@
             </td>
         </tr>
     {% endfor %}
+    <ul>
+        {% for event in events_list %}
+            <li>
+                {{event.name.text}}
+            </li>
+        {% endfor %}
+    </ul>
+    
     </table>
     <p><a href="{% url 'tasks-create' %}">{% fontawesome_icon 'plus' color='green' %}</a></p>
+    <p><a href="{% url 'logout' %}">logout</a></p>
 {% endblock %}

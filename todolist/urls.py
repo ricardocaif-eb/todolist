@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'tasks_manager/', include('tasks_manager.urls')),
     url(r'accounts/', include('django.contrib.auth.urls')),
     url(r'admin/', admin.site.urls),
+    url('', include('social_django.urls', namespace='social')),
 ]
