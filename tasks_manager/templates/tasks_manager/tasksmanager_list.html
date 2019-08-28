@@ -30,11 +30,11 @@
         {% for event in events_list %}
             <li>
                 {{event.name.text}}
+                <p><a href="{% url 'tasks-create' event_id=event.id %}">{% fontawesome_icon 'plus' color='green' %}</a></p>
             </li>
         {% endfor %}
     </ul>
     
     </table>
-    <p><a href="{% url 'tasks-create' %}">{% fontawesome_icon 'plus' color='green' %}</a></p>
     <p><a href="{% url 'logout' %}">logout</a></p>
 {% endblock %}
