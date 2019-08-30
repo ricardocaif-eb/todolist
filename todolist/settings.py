@@ -152,6 +152,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Social Auth Settings
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'tasks-list'
 LOGOUT_REDIRECT_URL = 'login'

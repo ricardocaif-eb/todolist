@@ -37,8 +37,8 @@ class TasksCreate(LoginRequiredMixin, CreateView):
         """
         If the form is valid, save the associated model.
         """
-        import ipdb; ipdb.set_trace()
         self.object = form.save(commit=False)
+        self.object.event_id = self.kwargs['event_id']
         self.object.user = self.request.user
         return super(TasksCreate, self).form_valid(form)
 

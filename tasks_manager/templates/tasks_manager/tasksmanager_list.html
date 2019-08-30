@@ -1,40 +1,41 @@
 {% extends 'base.html' %}
 
 {# Load the tag library #}
-{% load static %}
 {% load bootstrap3 %}
 {% load fontawesome %}
-
+{% load static %}
 {% block content %}
-    <h1>Hi {{user.username}}, these are your tasks!</h1>
-    <table>
-    {% for task in object_list %}
-    
-        <tr>
-            {% if task.done %}
-            <td>{% fontawesome_icon 'check' color='green' %}</td>
-            {% else %}
-            <td>{% fontawesome_icon 'times' color='orange' %}</td>
-            {% endif %}
-            <td>{{task.name}}</td>
-            <td>{{task.priority}}</td>
-            <td>{{task.user}}</td>
-            <td>{{task.updated_on}}</td>
-            <td>
-                <a href="{% url 'tasks-update' pk=task.id %}">{% fontawesome_icon 'edit' color='darkgrey' %}</a>
-                <a href="{% url 'tasks-delete' pk=task.id %}">{% fontawesome_icon 'trash' color='red' %}</a>
-            </td>
-        </tr>
-    {% endfor %}
+    <h1 class='test'>Hi {{user.username}}, these are your Events and its tasks!</h1>
     <ul>
         {% for event in events_list %}
-            <li>
-                {{event.name.text}}
-                <p><a href="{% url 'tasks-create' event_id=event.id %}">{% fontawesome_icon 'plus' color='green' %}</a></p>
-            </li>
+        <li>
+            <div>
+                <span>{{event.name.text}}</span> <a href="{% url 'tasks-create' event_id=event.id %}">{% fontawesome_icon 'plus' color='green' %}</a>
+            </div>
+            {% for task in object_list %}
+            <table>
+                {% if task.event_id == event.id %}
+                    <tr>
+                        {% if task.done %}
+                        <td >{% fontawesome_icon 'check' color='green' %}</td>
+                        {% else %}
+                        <td>{% fontawesome_icon 'times' color='orange' %}</td>
+                        {% endif %}
+                        <td>{{task.name}}</td>
+                        <td>{{task.priority}}</td>
+                        <td>{{task.user}}</td>
+                        <td>{{task.updated_on}}</td>
+                        <td>
+                            <a href="{% url 'tasks-update' pk=task.id %}">{% fontawesome_icon 'edit' color='darkgrey' %}</a>
+                            <a href="{% url 'tasks-delete' pk=task.id %}">{% fontawesome_icon 'trash' color='red' %}</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            </table>
+            {% endfor %}
+        </li>
         {% endfor %}
     </ul>
     
-    </table>
     <p><a href="{% url 'logout' %}">logout</a></p>
 {% endblock %}

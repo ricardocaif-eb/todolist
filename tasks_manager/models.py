@@ -16,7 +16,7 @@ class TasksManager(models.Model):
     done = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    event_id = models.BigIntegerField(default=0)
+    event_id = models.CharField(max_length=200)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
