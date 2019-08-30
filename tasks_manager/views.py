@@ -24,7 +24,13 @@ class TasksList(LoginRequiredMixin, ListView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
+        events = self.get_events()
+        events_ids = [event.id for event in events if  ]
+        tasks = get_queryset()
+        for event in context['events_list']:
         context['events_list'] = self.get_events()
+
+            import ipdb; ipdb.set_trace()
         return context
 
 

@@ -5,7 +5,7 @@
 {% load fontawesome %}
 {% load static %}
 {% block content %}
-    <h1 class='test'>Hi {{user.username}}, these are your Events and its tasks!</h1>
+    <h1 class='test'>Hi {{user.first_name}}, these are your Events and their tasks!</h1>
     <ul>
         {% for event in events_list %}
         <li>

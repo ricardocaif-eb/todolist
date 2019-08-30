@@ -20,16 +20,16 @@
     {% bootstrap_messages %}
   </head>
   <body>
-    <nav>
-      <h3>ETM</h3>
-      <div>
-        {{user.username}}
-        <img src="" alt="user avatar">
-      </div>
-    </nav>
-    <main>
+    {% if user.username %}
+      <nav class="nav">
+        <h3>ETM</h3>
+        <div>
+          {{user.first_name}}
+          <img src="" alt="user avatar">
+        </div>
+      </nav>
+    {% endif %}  
     {% block content %}
     {% endblock %}
-  </main>
-</body>
+  </body>
 </html>
