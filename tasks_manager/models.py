@@ -23,3 +23,8 @@ class TasksManager(models.Model):
         default=None
         )
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "\n name: {} \n priority: {} \n done? {} \n updated: {} \n event_id: {} \n user: {}".format(
+            self.name, self.priority, self.done, self.updated_on, self.event_id, self.user
+        )
