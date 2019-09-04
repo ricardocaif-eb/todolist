@@ -7,6 +7,7 @@ coverage==4.5.4
 coveralls==1.8.2
 decorator==4.4.0
 defusedxml==0.6.0
+dj-database-url==0.5.0
 Django==1.11.24
 django-bootstrap3==11.1.0
 django-extensions==2.2.1
@@ -19,6 +20,7 @@ flake8==3.7.8
 git-sweep==0.1.1
 gitdb2==2.0.5
 GitPython==3.0.2
+gunicorn==19.9.0
 idna==2.8
 ipdb==0.12.2
 ipython==7.7.0
@@ -54,3 +56,4 @@ Tree==0.2.4
 urllib3==1.25.3
 wcwidth==0.1.7
 Werkzeug==0.15.5
+whitenoise==4.1.3
