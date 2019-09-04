@@ -1,10 +1,15 @@
 import os
-from django.core.exceptions import ImproperlyConfigured
+
+# env vars for testing
+ENVIRON = {
+    'SOCIAL_AUTH_EVENTBRITE_KEY': 'basura',
+    'SOCIAL_AUTH_EVENTBRITE_SECRET': 'basura',
+    'SECRET_KEY': 'basura',
+    }
 
 
 def get_env_variable(var_name):
     try:
         return os.environ[var_name]
     except KeyError:
-        error_msg = 'Set the %s environment variable' % var_name
-        raise ImproperlyConfigured(error_msg)
+        return ENVIRON[var_name]
